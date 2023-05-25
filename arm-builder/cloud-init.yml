@@ -1,0 +1,33 @@
+#cloud-config
+package_upgrade: true
+lxd:
+  preseed: |
+    config: {}
+    networks:
+      - config:
+          ipv4.address: 10.10.2.1/24
+          ipv4.nat: "true"
+        description: ""
+        name: lxdbr0
+        type: bridge
+        project: default
+    storage_pools:
+      - config: {}
+        description: ""
+        name: default
+        driver: dir
+    profiles:
+      - config: {}
+        security.nesting: true
+        description: Default LXD profile
+        devices:
+          eth0:
+            name: eth0
+            network: lxdbr0
+            type: nic
+          root:
+            path: /
+            pool: default
+            type: disk
+        name: default
+    projects: []
