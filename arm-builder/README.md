@@ -6,6 +6,7 @@
 1. Exec into the build-runner guest and install the pre-requisites for building fedora-ostree-desktops
     ```sh
     lxc exec build-runner bash
+    dnf install -y wget
     wget https://gitlab.com/fedora/ostree/buildroot/-/raw/main/coreos-continuous.repo -O /etc/yum.repos.d/coreos-continuous.repo
     wget https://gitlab.com/fedora/ostree/buildroot/-/raw/main/coreos-continuous.gpg -O /etc/pki/rpm-gpg/coreos-continuous.gpg
     dnf -y upgrade
@@ -15,7 +16,7 @@
 1. Checkout the ci-test Fedora OSTree project, build and load the image
     ```sh
     cd src
-    git clone https://gitlab.com/fedora/ostree/ci-test.git
+    git clone https://gitlab.com/fedora/ostree/ci-test.git -b f38
     cd ci-test
     just compose-image silverblue
     podman load -i fedora-silverblue.ociarchive
