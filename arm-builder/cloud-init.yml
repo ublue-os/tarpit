@@ -12,13 +12,16 @@ lxd:
         type: bridge
         project: default
     storage_pools:
-      - config: {}
+      - config:
+          source: lxc
+          volatile.initial_source: /dev/nvme1n1
+          zfs.pool_name: lxc
         description: ""
         name: default
-        driver: dir
+        driver: zfs
     profiles:
-      - config: {}
-        security.nesting: true
+      - config:
+          security.nesting: true
         description: Default LXD profile
         devices:
           eth0:
