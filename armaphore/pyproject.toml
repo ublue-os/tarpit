@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "armaphore"
+version = "0.1.0"
+description = "Semaphore access control to bare metal systems"
+authors = ["Marco Ceppi <marco@ceppi.net>"]
+license = "Apache-2.0"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+fastapi = "^0.97.0"
+httpx = "^0.24.1"
+jmespath = "^1.0.1"
+
+[tool.poetry.group.dev.dependencies]
+black = "^23.3.0"
+ruff = "^0.0.272"
+pytest = "^7.3.2"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
