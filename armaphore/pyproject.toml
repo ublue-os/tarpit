@@ -11,11 +11,13 @@ python = "^3.11"
 fastapi = "^0.97.0"
 httpx = "^0.24.1"
 jmespath = "^1.0.1"
+redis-om = "^0.1.2"
 
 [tool.poetry.group.dev.dependencies]
 black = "^23.3.0"
 ruff = "^0.0.272"
 pytest = "^7.3.2"
+uvicorn = "^0.22.0"
 
 [build-system]
 requires = ["poetry-core"]
